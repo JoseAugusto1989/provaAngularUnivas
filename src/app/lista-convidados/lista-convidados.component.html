@@ -1,0 +1,36 @@
+<form #myForm="ngForm" (submit)="saveData(myForm)">
+  <div>
+    <label>Nome:</label>
+    <input type="text" name="nome" [(ngModel)]="newList.nome">
+  </div>
+
+  <div>
+    <label>Email: </label>
+    <input type="email" name="email" [(ngModel)]="newList.email">
+  </div>
+
+  <input type="submit" value="Salvar">
+</form>
+
+<h2>Convidados já cadastrados</h2>
+
+<div>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Remover</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let convidados of lista">
+        <td>{{ convidados.nome }}</td>
+        <td>{{ convidados.email }} </td>
+        <td><input type="submit" value="Remover"
+          (click)="deleteButton()"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
